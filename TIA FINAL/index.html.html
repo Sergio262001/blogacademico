@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colectivo Narrativas</title>
+<style>
+    :root {
+      --primary-color: #4a148c;
+      --secondary-color: #6a1b9a;
+      --bg-color: #f7f7f7;
+      --white: #ffffff;
+      --gray: #eee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: var(--bg-color); }
+    header { background-color: var(--primary-color); color: var(--white); padding: 1.5rem; text-align: center; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      background: var(--gray);
+    }
+    .tab-button {
+      flex: 1;
+      padding: 1rem;
+      cursor: pointer;
+      text-align: center;
+      background: #ddd;
+      border-right: 1px solid #ccc;
+      transition: background 0.3s ease;
+    }
+    .tab-button:last-child {
+      border-right: none;
+    }
+    .tab-button.active {
+      background: var(--white);
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      background: var(--white);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .photo-placeholder, .card {
+      border: 1px dashed #ccc;
+      background: #fafafa;
+      padding: 1rem;
+      margin: 1rem 0;
+      text-align: center;
+      border-radius: 8px;
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h2 {
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    h3 {
+      margin-top: 1.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+      }
+      .tab-button {
+        border-bottom: 1px solid #ccc;
+        border-right: none;
+      }
+    }
+  </style>
+<style>
+.read-more-content {
+    display: none;
+}
+.read-more-toggle {
+    color: #007BFF;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+.seminario-img {
+   
+    margin: 0px auto;
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+}
+</style>
+<style>
+    .ver-mas {
+      display: block;
+      color: #4a148c;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    .contenido-expandible {
+      max-height: 250px;
+      overflow: hidden;
+      position: relative;
+      transition: max-height 0.3s ease;
+    }
+    .contenido-expandible.expandido {
+      max-height: none;
+    }
+    .ver-mas::after {
+      content: " [+] Ver más";
+    }
+    .ver-mas.expandido::after {
+      content: " [-] Ver menos";
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".ver-mas").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          const content = this.previousElementSibling;
+          content.classList.toggle("expandido");
+          this.classList.toggle("expandido");
+        });
+      });
+    });
+  </script>
+
+
+</head>
+<body>
+<header>
+<h1>Colectivo Narrativas, Crítica y Educación Matemática</h1>
+</header>
+<div class="tabs">
+<div class="tab-button active" onclick="showTab(event, 'inicio')">Inicio</div>
+<div class="tab-button" onclick="showTab(event, 'produccion')">Producción Académica</div>
+<div class="tab-button" onclick="showTab(event, 'proyectos')">Proyectos</div>
+<div class="tab-button" onclick="showTab(event, 'seminarios')">Seminarios</div>
+<div class="tab-button" onclick="showTab(event, 'integrantes')">Integrantes</div>
+<div class="tab-button" onclick="showTab(event, 'colaboradores')">Profesores Colaboradores</div>
+</div>
+<div class="tab-content active" id="inicio">
+<h2>¿Quiénes somos?</h2>
+<p>El <strong>Colectivo Narrativas, Crítica y Educación Matemática</strong> nace en el año 2020, liderado por las profesoras <strong>Claudia Salazar Amaya</strong> y <strong>Elizabeth Torres Puentes</strong> de la <strong>Universidad Pedagógica Nacional (Colombia)</strong>. Esta iniciativa surge a partir de sus experiencias investigativas como formadoras de profesores de matemáticas, con el propósito de reflexionar críticamente sobre las prácticas educativas y la investigación en educación matemática desde una perspectiva narrativa.</p>
+<div class="photo-placeholder">
+<img alt="Equipo Fundador" src="index/img/fundadores.jpg" width="400"/>
+</div>
+</div>
+<div class="tab-content" id="produccion">
+<h2>Producción Académica</h2>
+<h3>Elizabeth Torres Puentes</h3>
+<ul>
+<li><a href="https://scholar.google.com.co/citations?user=Ggi43ywAAAAJ&amp;hl=es" target="_blank">Google Scholar</a></li>
+<li><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001381847" target="_blank">CvLAC - Minciencias</a></li>
+</ul>
+<h3>Claudia Salazar Amaya</h3>
+<ul>
+<li><a href="https://scholar.google.es/citations?user=ewt_6wkAAAAJ&amp;hl=es" target="_blank">Google Scholar</a></li>
+<li><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000161152" target="_blank">CvLAC - Minciencias</a></li>
+</ul>
+</div>
+<div class="tab-content" id="proyectos">
+<h2>Proyectos de Investigación</h2>
+<div class="card">
+<p><strong>Proyecto:</strong> Identidades narrativas de profesores de matemáticas vinculados a programas de formación de la Universidad Pedagógica Nacional.</p>
+<p><strong>Institución:</strong> Universidad Pedagógica Nacional</p>
+<p><strong>Código:</strong> DMA-608-22</p>
+<p><strong>Año:</strong> 2022</p>
+<p><a href="http://repositorio.pedagogica.edu.co/handle/20.500.12209/18984">Ver más sobre el proyecto</a></p>
+<br>
+<br>
+<img src="index/img/proyect 3.png">
+</div>
+</div>
+
+<div class="tab-content" id="seminarios">
+<h2>Seminarios Doctorales</h2>
+<div class="card" style="text-align: left;">
+<h3 style="color: #4a148c; font-size: 1.5rem;">Perspectiva Narrativa en educación. Aportes y posibilidades (Doctorado interinstitucional en Educación- Universidad Pedagógica Nacional- Seminario de educación y pedagogía)</h3>
+<div style="font-size: 1.5rem; color: #4a148c; margin-bottom: 1rem;">2022-2</div>
+
+<div class="contenido-expandible" id="contenido-perspectivanarrativaeneducaciónaportesyposibilidades">
+
+        Justificación del seminario: Este seminario propone el estudio de elementos teóricos y metodológicos que
+        permiten comprender los aportes y posibilidades de la perspectiva narrativa en educación. En la dimensión investigativa, reconocemos, tal como lo plantean Porta y Méndez (2021), que hoy tiene lugar una expansión de las perspectivas de la investigación social y educativa con el fin de aproximarse a la experiencia vital de los sujetos, lo que ha implicado la generación de posiciones epistemológicas disruptivas y la propuesta de metodologías e instrumentos que transforman los parámetros establecidos por la investigación clásica. De acuerdo con estos autores “en la actualidad la investigación narrativa y biográfico-narrativa permite vislumbrar territorios vitales e interdependencias plurales […] en las Ciencias Sociales en general y
+        las Ciencias de la Educación en particular” (p. 335). Una perspectiva narrativa en investigación, como lo plantean estos autores, invita “[…] al retorno al sujeto y a la construcción de narrativas de manera polifónica
+        desde epistemologías y metodologías con rostro humano” (Porta y Méndez, 2021, p. 335).
+        La investigación desde esta perspectiva pretende superar la dicotomía entre lo subjetivo y lo institucional, por considerar que las voces de los sujetos y los contextos de actuación hacen parte de la misma realidad. También reivindica las identidades de los sujetos desde su propio valor y por tanto independiente de las miradas de los investigadores (Rivas, Márquez, Leite, Calvo, Martagón &amp; Prados, 2019). Como lo plantean Porta y Méndez (2021) “es la movilización de los propios sujetos, a partir de la invocación a
+        narrar(se), que conjuga el reconocimiento de sí mismo como sujeto portador de significados, desde relatos situados que se caracterizan por dimensionalidades puestas en territorios, temporalidades y socialidades
+        diversas que hacen de la experiencia la condición sensible y vital que otorga sentido a esta posición” (p. 335). Para McEwan y Egan (2012) el abandono de la narrativa durante un largo periodo de la humanidad obedece a las presunciones de verdad de la modernidad, tal como lo planteó Walter Benjamín con sus ideas acerca de la declinación del narrador como fuerza presente en el mundo moderno “[…] la verdad, para los incansables promotores de la modernidad y la racionalidad técnica, se mide con arreglo a los procedimientos estándar que exige una mirada fría y crítica dirigida al objeto de estudio. La forma narrativa, por el contrario, invita al oyente o al lector a suspender ese escepticismo y adherir al flujo narrativo de los acontecimientos como una auténtica exploración de la experiencia desde determinada perspectiva” (p. 16). De otra parte, en la dimensión pedagógica, Whyte (1981, citado por Gudmundsdottir, 2012) afirma que el vínculo entre conocimiento y práctica pedagógica solo es posible a través de la narración. Para Whyte el profesor con su práctica pedagógica puede conservar la naturalidad de las situaciones escolares e impactar determinantemente en la evolución de los procesos de enseñanza-aprendizaje, pero ello implica una estrecha vinculación entre conocimiento y práctica profesional, que solo se posibilita a través de la narración. Para McEwan (2012) “una explicación hermenéutica del raciocinio práctico […] disuelve el dualismo entre teoría y práctica” (p. 252). Así la interpretación de los relatos de los maestros permite comprender el sentido de una cierta organización de los sucesos en una secuencia temporal y resignificar las prácticas pedagógicas y las experiencias personales de tipo profesional o escolar. Esto se debe a que la narrativa se “trata no sólo de hechos, ideas o teorías, o hasta de sueños, temores y esperanzas, sino de hechos, teorías y sueños desde la perspectiva de la vida de alguien y dentro del contexto de las emociones de alguien” (McEwan y Egan, 2012, p. 10). En este sentido, asigna sentido a los acontecimientos de la experiencia docente y los inviste de coherencia, integridad, amplitud y conclusión (Gudmundsdottir, 2012). Bolívar, Segovia y Fernández (2001) señalan que las narrativas (auto) biográficas permiten elaborar mapas de las trayectorias de los profesores en los que se evidencian cadenas cronológicas de situaciones de distinta naturaleza (acontecimientos de relevancia, etc.). En estas narrativas se destacan tiempos y espacios de importancia en la historia del profesor para comprender su vida. Cabe señalar que para Ricoeur (2006) un acontecimiento no es algo que sucedió y ya, es mucho más que una ocurrencia, es eso que contribuyó al progreso de la vida que se narra y al desarrollo del relato, tanto en su comienzo como en su desenlace. En definitiva, el análisis de narrativas, en todos los campos de la vida humana, tiene que ver con la necesidad de entenderla como un acto primario de la mente transferido al arte desde la vida (McEwan &amp; Egan, 2012). En la dimensión epistemológica, Rivas y Herrera (2010) plantean la necesidad de no pensar en modelos generales sobre la realidad basados en la lógica de la ciencia como únicos argumentos para operar en el mundo. Promueven la idea de que la experiencia de los sujetos permite interpretar el mundo y concretar estos modelos generales en diferentes construcciones particulares que develan mundos posibles. Para estos autores el punto de vista narrativo “No representa construcciones preestablecidas y cerradas, sino un proceso en marcha, un modo de participación en la historia colectiva del conocimiento” (p. 18). Al respecto, Bruner (2003) afirma que en un relato subyace un modo de conocer, de tal manera que modos de narrar y de conocer se entremezclan y retoma la etimología de la palabra narrar que deriva del narrare latino, que es “aquel que sabe de un modo particular” (p. 48). Ahora bien, los relatos no solo permiten comunicar quién es el sujeto, qué hace, cómo se siente y por qué debe seguir cierto curso de acción y no otro (Mc Ewan &amp; Egan, 2012), también permiten imaginar. La imaginación narrativa tiene en cuenta la vida tal como se conoce, pero mantiene una distancia de ella; de este modo, logra tentar con posibles alternativas que la trascienden (Bruner, 2003). Para Bruner, el desconocimiento del modo de pensar narrativo se debe a que “[…] los relatos, quizá en contra de la lógica o la ciencia, tienen en conjunto la apariencia de ser demasiado sospechosos de segundas intenciones, de abrigar una finalidad específica y, en especial, de malicia” (p. 18). Es innegable que en la narrativa subyace la dimensión emotiva de la experiencia, las relaciones y singularidad de cada acción, evidenciándose la complejidad misma de la vida del narrador. Por ello, desde un modo de pensar narrativo es imposible la descomposición de las acciones en un conjunto de variables discretas, lo que sería natural en un modo atomista y formalista de ver la realidad. Al respecto, Bruner (1998) plantea “[…] como modo de conocimiento, el relato capta la riqueza y detalles de los significados en los asuntos humanos (motivaciones, sentimientos, deseos o propósitos), que no pueden ser expresados en definiciones, enunciados factuales o proposiciones abstractas, como hace el razonamiento lógico-formal” (p. 27). Por último, el seminario se hace relevante por la posibilidad que ofrece para discutir las implicaciones éticas que supone la investigación narrativa, pues en ella los participantes quedan expuestos; como lo señalan Rivas, J., Prados, M., Leite, A., Cortés, P., Márquez M., Calvo, P., Martagón V., y Acuña, M. (2020) pasan del plano íntimo a una exposición pública, ponen en juego su subjetividad, expresada en sus vidas, sus trayectorias, sus voces. Este paso de la esfera de lo íntimo a lo público puede afectar de una forma u otra a su intimidad, su imagen pública, sus responsabilidades, etc. Por lo anterior es necesario reconocer, como investigadores, un posicionamiento ético que los salvaguarde.
+      
+</div>
+<span class="ver-mas" id="toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades"></span>
+
+<div class="photo-placeholder">
+<img class="seminario-img" src="index/img/SEMIN/SEM 1.1.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 1.2.png" style="width: 340px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 1.3.png" style="width: 300px; border-radius: 8px;"/>
+</div>
+</div>
+<div class="card" style="text-align: left;">
+<h3 style="color: #4a148c; font-size: 1.5rem;">Narrativas, Escuela, Experiencia e Investigación (Doctorado interinstitucional en Educación- Universidad Pedagógica Nacional- Seminario de educación y pedagogía)</h3>
+<div style="font-size: 1.5rem; color: #4a148c; margin-bottom: 1rem;">2023-1</div>
+
+<div class="contenido-expandible" id="contenido-narrativasescuelaexperienciaeinvestigación">
+
+        Justificación del seminario: Este seminario propone el estudio de elementos teóricos y metodológicos que permitan comprender los aportes y posibilidades de la perspectiva narrativa como una forma de investigar en educación, a partir de cuatro núcleos temáticos: Narrativas, Escuela, Experiencia e Investigación.
+        El primer núcleo refiere a la narrativa como generadora de conocimiento y comprensión de fenómenos a los que no podríamos aproximarnos a partir de otros modos de indagación. Al respecto, Rivas y Herrera (2010) plantean la necesidad de no pensar en modelos generales sobre la realidad basados en la lógica de la ciencia como únicos argumentos para operar en el mundo. Promueven la idea de que la experiencia de los sujetos permite interpretar el mundo y concretar estos modelos generales en diferentes construcciones particulares que develan mundos posibles. Para estos autores el punto de vista narrativo “no representa construcciones preestablecidas y cerradas, sino un proceso en marcha, un modo de participación en la historia colectiva del conocimiento” (p. 18). Al respecto, Bruner (2003) afirma que en un relato subyace un modo de conocer, de tal manera que modos de narrar y de conocer se entremezclan y retoma la etimología de la palabra narrar que deriva del narrare latino, que es “aquel que sabe de un modo particular”” (p. 48).
+        En la relación narrativa y vida, se enfatiza en la idea ricoeuriana de poder trascender la vida como fenómeno biológico a partir de la narración y la interpretación. Las narrativas destacan tiempos y espacios de importancia en la vida del narrador, que a su vez es actante de su vida. Para Ricoeur (2006) un acontecimiento no es algo que sucedió y ya; es mucho más que una ocurrencia, es eso que contribuyó al progreso de la vida que se narra y al desarrollo del relato, tanto en su comienzo como en su desenlace. Además, Ricoeur (2006) afirma que la ficción presente en la narrativa contribuye a hacer de la vida, una vida humana. En definitiva, el análisis de narrativas, en todos los campos de la vida humana, tiene que ver con la necesidad de entenderla como un acto primario de la mente transferido al arte desde la vida (McEwan &amp; Egan, 2012).
+        En el segundo núcleo, la escuela, se pretende reconocer la importancia de la narrativa en la configuración de identidades de los protagonistas de la escuela; para el caso de los profesores, el papel de la narración en su formación inicial y en sus múltiples refiguraciones a lo largo de su experiencia y formación continuada. Esta perspectiva narrativa pretende superar la dicotomía entre lo subjetivo y lo institucional, por considerar que las voces de los sujetos y los contextos de actuación hacen parte de la misma realidad. También reivindica las identidades de los sujetos desde su propio valor y desde sus maneras propias de interpretación (Rivas, Márquez, Leite, Calvo, Martagón &amp; Prados, 2019). Como lo plantean Porta y Méndez (2021) “es la movilización de los propios sujetos, a partir de la invocación a narrar(se), que conjuga el reconocimiento de sí mismo como sujeto portador de significados, desde relatos situados que se caracterizan por dimensionalidades puestas en territorios, temporalidades y socialidades diversas que hacen de la experiencia la condición sensible y vital que otorga sentido a esta posición” (p. 335).
+        Para pensar al profesor en este núcleo, de acuerdo con Whyte (1981, citado por Gudmundsdottir, 2012) consideramos que el vínculo entre conocimiento y práctica pedagógica solo es posible a través de la narración. Para Whyte, el profesor con su práctica pedagógica puede conservar la naturalidad de las situaciones escolares e impactar determinantemente en la evolución de los procesos de enseñanza-aprendizaje, pero ello implica una estrecha vinculación entre conocimiento y práctica profesional, que solo se posibilita a través de la narración. Para McEwan (2012) “una explicación hermenéutica del raciocinio práctico […] disuelve el dualismo entre teoría y práctica” (p. 252). Así, la interpretación de los relatos de los maestros permite comprender el sentido de una cierta organización de los sucesos en una secuencia temporal y resignificar las prácticas pedagógicas y las experiencias personales de tipo profesional o escolar. Esto se debe a que la narrativa se “trata no sólo de hechos, ideas o teorías, o hasta de sueños, temores y esperanzas, sino de hechos, teorías y sueños desde la perspectiva de la vida de alguien y dentro del contexto de las emociones de alguien” (McEwan y Egan, 2012, p. 10). En este sentido, asigna sentido a los acontecimientos de la experiencia docente y los inviste de coherencia, integridad, amplitud y conclusión (Gudmundsdottir, 2012). 
+        En cuanto al tercer núcleo, la experiencia, asumimos a Larrosa (2009) para plantear la experiencia como “eso que me pasa”, como acontecer de algo, que es significativo para la persona a la que le acontece, por lo cual la experiencia es propia de quien la vive. Partiendo de los planteamientos de este autor se hace énfasis en la experiencia entendida como relación con el mundo en el que estamos inmersos y desde la cual construimos un modo de estar-en–el–mundo. También se aborda la relación entre experiencia, vida y cuerpo y el papel de la mediación biográfica (Delory-Momberger, 2012); esta relación plantea “la experiencia como lo que compone una forma de vida, y el saber de experiencia como saber corporizado, incorporado, encarnado” (Larrosa, 2020, p. 27). Además, en este núcleo se aborda la relación experiencia y saber práctico, en la que la experiencia se concibe encarnada en la manera propia de cada uno de hacer las cosas; por último, se profundiza en la experiencia y la investigación, es decir, la experiencia y el pensamiento, la experiencia como interrupción de nuestro modo de estar-en–el-mundo y la necesidad de pensar. Este último punto está atravesado por la manera de decir y escribir la experiencia: “No se escribe sobre la experiencia sino desde ella” (Larrosa, 2020, p. 28). En esta última relación proponemos diálogos y distanciamientos entre interpretaciones narrativas y otros planteamientos, por ejemplo, la sistematización de experiencias como práctica y teoría para otros mundos posibles (Jara, 2018). Los anteriores planteamientos nos permitirán construir entretejidos entre experiencia y narración explicitando la importancia de aspectos como la temporalidad y la espacialidad para pensar esta dupla.
+        Por su parte, en el cuarto núcleo que corresponde a la investigación, se reconoce como lo plantean Porta y Méndez (2021) que hoy tiene lugar una expansión de las perspectivas de la investigación social y educativa con el fin de aproximarse a la experiencia vital de los sujetos, lo que ha implicado la generación de posiciones epistemológicas disruptivas y la propuesta de metodologías e instrumentos que transforman los parámetros establecidos por la investigación clásica. De acuerdo con estos autores “en la actualidad la investigación narrativa y biográfico-narrativa permite vislumbrar territorios vitales e interdependencias plurales […] en las Ciencias Sociales en general y las Ciencias de la Educación en particular” (p. 335). Una perspectiva narrativa en investigación, como lo plantean estos autores, invita “[…] al retorno al sujeto y a la construcción de narrativas de manera polifónica desde epistemologías y metodologías con rostro humano” (Porta y Méndez, 2021, p. 335). En este núcleo también asumimos los planteamientos de Van Manen (2016) para pensar las formas, las relaciones y las diferencias entre aproximaciones fenomenológicas y la investigación narrativa.
+        El núcleo de investigación supone pensar la posición ética del investigador, considerada como relación paritaria con el sujeto de la investigación, pues en este tipo de investigación los dos quedan expuestos. Como lo señalan Rivas y otros (2020) pasan del plano íntimo a una exposición pública, ponen en juego su subjetividad expresada en sus vidas, sus trayectorias, sus voces. Este traslado de la esfera de lo íntimo a lo público puede afectar de una forma u otra a su intimidad, su imagen pública, sus responsabilidades, etc. Por lo anterior es necesario reconocer, como investigadores, un posicionamiento ético que los salvaguarde.
+    
+</div>
+<span class="ver-mas" id="toggle-contenido-narrativasescuelaexperienciaeinvestigación"></span>
+
+<div class="photo-placeholder">
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.1.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.3.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.4.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.5.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.6.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.7.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 2.2.png" style="width: 100px; border-radius: 8px;"/>
+</div>
+<div class="card" style="text-align: left;">
+<h3 style="color: #4a148c; font-size: 1.5rem;">Fundamentos de la investigación Narrativa (Doctorado interinstitucional en Educación- Universidad Pedagógica Nacional- Seminario de educación y pedagogía)</h3>
+<div style="font-size: 1.5rem; color: #4a148c; margin-bottom: 1rem;">2023-2</div>
+
+<div class="contenido-expandible" id="contenido-fundamentosdelainvestigaciónnarrativa">
+
+        Este seminario propone el estudio de fundamentos que permiten comprender la perspectiva de investigación narrativa en educación, desde tres dimensiones
+        a saber: investigativa, epistemológica y ética. En la dimensión investigativa, reconocemos, tal como lo plantean Porta y Méndez (2021), que hoy tiene lugar
+        una expansión de las perspectivas de la investigación social y educativa con el fin de aproximarse a la experiencia vital de los sujetos, lo que ha implicado la
+        generación de posiciones epistemológicas disruptivas y la propuesta de metodologías e instrumentos que transforman los parámetros establecidos por
+        la investigación clásica. De acuerdo con estos autores “en la actualidad la investigación narrativa y biográfico-narrativa permite vislumbrar territorios vitales e interdependencias plurales […] en las Ciencias Sociales en general y las Ciencias de la Educación en particular” (p. 335). Una perspectiva narrativa
+        en investigación, como lo plantean estos autores, invita “[…] al retorno al sujeto y a la construcción de narrativas de manera polifónica desde epistemologías y metodologías con rostro humano” (Porta y Méndez, 2021, p. 335).
+        La investigación desde esta perspectiva pretende superar la dicotomía entre lo subjetivo y lo institucional, por considerar que las voces de los sujetos y los contextos de actuación hacen parte de la misma realidad. También reivindica las identidades de los sujetos desde su propio valor y por tanto independiente
+        de las miradas de los investigadores (Rivas, Márquez, Leite, Calvo, Martagón &amp; Prados, 2019). Como lo plantean Porta y Méndez (2021) “es la movilización de
+        los propios sujetos, a partir de la invocación a narrar(se), que conjuga el reconocimiento de sí mismo como sujeto portador de significados, desde relatos situados que se caracterizan por dimensionalidades puestas en territorios, temporalidades y socialidades diversas que hacen de la experiencia la condición sensible y vital que otorga sentido a esta posición” (p. 335).
+        Para McEwan y Egan (2012) el abandono de la narrativa durante un largo periodo de la humanidad obedece a las presunciones de verdad de la modernidad, tal como lo planteó Walter Benjamín con sus ideas acerca de la declinación del narrador como fuerza presente en el mundo moderno “[…] la verdad, para los incansables promotores de la modernidad y la racionalidad técnica, se mide con arreglo a los procedimientos estándar que exige una mirada fría y crítica dirigida al objeto de estudio. La forma narrativa, por el contrario, invita al oyente o al lector a suspender ese escepticismo y adherir al flujo narrativo de los acontecimientos como una auténtica exploración de la
+        experiencia desde determinada perspectiva” (p. 16).
+        En la dimensión epistemológica, Rivas y Herrera (2010) plantean la necesidad de no pensar en modelos generales sobre la realidad basados en la lógica de la ciencia como únicos argumentos para operar en el mundo.
+        Promueven la idea de que la experiencia de los sujetos permite interpretar el mundo y concretar estos modelos generales en diferentes construcciones particulares que develan mundos posibles. Para estos autores el punto de vista narrativo “No representa construcciones preestablecidas y cerradas, sino un proceso en marcha, un modo de participación en la historia colectiva del conocimiento” (p. 18). Al respecto, Bruner (2003) afirma que en un relato subyace un modo de conocer, de tal manera que modos de narrar y de conocer se entremezclan y retoma la etimología de la palabra narrar que deriva del narrare latino, que es “aquel que sabe de un modo particular” (p. 48). Ahora bien, los relatos no solo permiten comunicar quién es el sujeto, qué hace, cómo se siente y por qué debe seguir cierto curso de acción y no otro (Mc Ewan &amp; Egan, 2012), también permiten imaginar. La imaginación narrativa tiene en cuenta la vida tal como se conoce, pero mantiene una distancia de ella; de este modo, logra tentar con posibles alternativas que la trascienden (Bruner, 2003). Para Bruner, el desconocimiento del modo de pensar narrativo se debe a que “[…] los relatos, quizá en contra de la lógica o la ciencia, tienen en conjunto la apariencia de ser demasiado sospechosos de segundas intenciones, de abrigar una finalidad específica y, en especial, de malicia” (p. 18). Es innegable que en la narrativa subyace la dimensión emotiva de la experiencia, las relaciones y singularidad de cada acción, evidenciándose la complejidad misma de la vida del narrador. Por ello, desde un modo de pensar narrativo es imposible la descomposición de las acciones en un conjunto de variables discretas, lo que sería natural en un modo atomista y formalista de ver la realidad. Al respecto, Bruner (1998) plantea “[…] como modo de conocimiento, el relato capta la riqueza y detalles de los significados en los asuntos humanos (motivaciones, sentimientos, deseos o propósitos), que no pueden ser expresados en definiciones, enunciados factuales o proposiciones abstractas, como hace el razonamiento lógico-formal” (p. 27). Por último, el seminario se hace relevante por la posibilidad que ofrece para discutir las implicaciones éticas (dimensión ética) que supone la investigación narrativa, pues en ella los participantes quedan expuestos; como lo señalan Rivas, J., Prados, M., Leite, A., Cortés, P., Márquez M., Calvo, P., Martagón V., y Acuña, M. (2020) pasan del plano íntimo a una exposición pública, ponen en juego su subjetividad, expresada en sus vidas, sus trayectorias, sus voces. Este paso de la esfera de lo íntimo a lo público puede afectar de una forma u otra a su intimidad, su imagen pública, sus responsabilidades, etc. Por lo anterior es necesario reconocer, como investigadores, un posicionamiento ético
+      
+</div>
+<span class="ver-mas" id="toggle-contenido-fundamentosdelainvestigaciónnarrativa"></span>
+
+</div>
+<div class="card" style="text-align: left;">
+<h3 style="color: #4a148c; font-size: 1.5rem;">Incursiones de la crítica y lo político en la educación matemática y su investigación (Doctorado interinstitucional en Educación- Universidad Pedagógica Nacional- Seminario de Énfasis en educación matemática)</h3>
+<div style="font-size: 1.5rem; color: #4a148c; margin-bottom: 1rem;">2024-2</div>
+
+<div class="contenido-expandible" id="contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación">
+
+       
+La Teoría Crítica, desarrollada principalmente por la Escuela de Frankfurt en la primera mitad del siglo XX, es un enfoque interdisciplinario que busca comprender y criticar las formas en que la sociedad y la cultura contemporáneas mantienen y perpetúan la opresión y la injusticia. Esta perspectiva se basa en la premisa de que las estructuras sociales, políticas y económicas están imbuidas de relaciones de poder desiguales que benefician a ciertos grupos en detrimento de otros. Los teóricos críticos analizan cómo estas estructuras se reproducen a través de instituciones como los medios de comunicación, la educación y la política, y cómo estas pueden ser transformadas para promover la emancipación y la equidad. 
+La Teoría Crítica se caracteriza por su enfoque en la reflexión crítica y la acción transformadora. Busca desafiar las formas dominantes de pensamiento y cuestionar las narrativas hegemónicas que legitiman la injusticia y la desigualdad. A través del análisis crítico, los teóricos críticos aspiraron a despertar la conciencia de las personas sobre las estructuras de poder y fomentar la resistencia y la lucha por la emancipación. Además, la Teoría Crítica reconoce la importancia de la praxis, la unión entre teoría y acción, para generar cambios sociales significativos y construir una sociedad más justa y democrática a lo que la educación matemática no puede ser ajena.  
+A partir de la comprensión de los presupuestos de la Teoría Crítica y sus incursiones en la educación matemática, abordamos el seminario desde dos núcleos, relacionados con lo critico y lo político.
+En relación con el núcleo crítico, se considera la primera ola que propone Skovsmose conformada por los trabajos experimentales en educación que incluyen la educación matemática y que se pueden considerar verdaderamente críticos. Como lo plantea Skovsmose (1999)
+[...] En la medida en que tanto estudiantes como profesores adopten una orientación crítica frente al contenido tradicional y a las materias de la enseñanza, con miras a desarrollar su competencia crítica al enfocarse en problemas fuera del universo educativo, debería darse una base de apoyo para su compromiso crítico con los esfuerzos educativos y sociales comunes[...] (p.70) 
+Estos trabajos se identifican con dos tripletas conceptuales fundamentales, la primera tripleta es crítica, enseñanza y matemáticas; la segunda terna es competencia crítica, distancia y compromiso críticos. En esta ola se ubican los trabajos de Damerow et al. (1974), Münzinger (Ed.) (1977), Niss (1977), Riess (Ed.) (1977), Volk (1975) y Volk (Ed.) (1979) (citados por Skovsmose, 1999, p. 69) como antecedentes de la propuesta teórica de una filosofía de la educación matemática crítica. Desde la década de los años noventa se establecieron discursos que pretendían explorar y comprender la relación entre educación matemática y democracia en el marco de estas ideas de la educación matemática crítica propuestas por Skovsmose (1999). Estas ideas relacionales se desarrollan con influencia de los trabajos de Mellin–Olsen (1977), en los que señala que la complejidad de la interpretación y el discurso educativo debe enmarcarse en un marco sociológico amplio para comprender la educación matemática. También del trabajo de Dieter Volk (1975, 1979, citado por Skovsmose,1999) quien integró una interpretación crítica de la emancipación a través de la educación matemática y se posiciona en el constructivismo para favorecer la comprensión de las matemáticas. Así, los discursos de la educación matemática crítica plantean asuntos como educación crítica, alfabetización matemática, competencias democráticas, ciudadanía, carácter crítico de las matemáticas, poder formativo de las matemáticas, no neutralidad de las matemáticas y conocer reflexivo en la práctica educativa. 
+En relación con el núcleo de lo político, ubicamos la segunda ola desarrollada por Valero y colegas (2012) con una perspectiva sociopolítica o también llamada estudios de la política cultural de las matemáticas y la educación matemática, en ella se han incorporado a la red de prácticas de educación matemática aspectos relacionados con el poder que se ejerce con las matemáticas sobre las estructuras sociales. Como lo plantean Valero y Pais (2015),
+Uno de los primeros puntos de una segunda ola de crítica es el cuestionamiento mismo al privilegio de las matemáticas y la educación matemática como motores de la ciencia y la vida social. Más que ver la esencia de esas formas de conocimiento como la fuente de su posición preponderante, el foco analítico se vuelca hacia el entender históricamente y en el presente la conexión entre matemáticas, educación y poder en la constitución del ser moderno, para alcanzar la promesa de una población entrenada para ser una fuerza altamente productiva para una economía global, capitalista y competitiva (Valero y Pais, 2015, citado en Valero, Andrade y Montecino, 2015, p. 299) 
+En relación con estos asuntos de poder y de equidad, Popkewitz y Lindblad (2000) afirman que ciertos grupos sociales dominan y reprimen a otros grupos a través de procesos de producción cultural que se incorporan en la educación. Enfatiza en que las prácticas de enseñanza, en particular, insertan normas culturales y sociales y valores como legítimos. La consecuencia es delimitar la participación y producir patrones de marginación. La política y la mayoría de la investigación sobre la diversidad, el pluralismo cultural y los currículos eurocéntricos, giran en torno a ideas asociadas al poder. 
+De acuerdo con Civil, Díez y Giménez (2007), en trabajos recientes de Educación Matemática, aparece la idea de prácticas sociales excluyentes, en ellas hay que reconocer que no son las Matemáticas por sí mismas, las que generan procesos de exclusión en el aula y en la sociedad, sino que es la misma sociedad y las prácticas sociales y de aula las que excluyen mediante el uso de las matemáticas. Knijnik (2005, citada por Civil et al., 2007), analiza dos facetas en las que se llega a excluir, y se acaba por denominar minorías a dichos grupos: una de ellas se refiere a la exclusión de grupos sociales de las matemáticas y la otra se refiere a las políticas del conocimiento que ocultan las relaciones de poder que hacen que algunos contenidos se consideren legitimados o no para estar en un currículo. En ese reconocimiento de la no neutralidad de los sistemas educativos y de la enseñanza de las matemáticas, se advierte que las prácticas matemáticas que se promueven en la escuela instauran en los estudiantes posicionamientos sobre saber legítimo, clase social, género, "raza", etnia y ciudadanía.
+Cabe destacar que Skovsmose (2007), desde la perspectiva de la Educación Matemática Crítica, señala que los procesos de exclusión de la clase de matemáticas son procesos políticos, adjudicándoles dos razones: a. son evidencia de las decisiones de los estudiantes en el marco de su porvenir, y b. en la mayoría de los casos los desempeños de los niños y niñas se privatizan y personalizan a priori, en vez de considerar que sus condiciones particulares sean vistas como oportunidades para el aprendizaje en la estructura escolar. Para Valero (2002), el contexto sociopolítico es definido como el espacio sociológico de nivel macro que influye en las interacciones más focalizadas de la enseñanza y aprendizaje de las matemáticas en un nivel micro, como el salón de clase. El contexto sociopolítico debe y puede abrir puertas para que los estudiantes perciban oportunidades de aprendizaje. Lo anterior muestra que hay una necesidad constante y urgente de investigación que avance en la comprensión de las cuestiones relacionadas con la enseñanza de las matemáticas y la sociedad, considerando que la educación matemática implica relaciones desiguales de poder. Esto conduce a un interés creciente por examinar asuntos de equidad y justicia social en la enseñanza y el aprendizaje de las matemáticas.
+      
+</div>
+<span class="ver-mas" id="toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación"></span>
+
+<div style="margin-left: 400px;">
+<img class="seminario-img" src="index/img/SEMIN/SEM 3.1.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 3.2.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 3.3.png" style="width: 300px; border-radius: 8px;"/>
+</div>
+</div>
+</div>
+<div class="card" style="text-align: left;">
+<h3 style="color: #4a148c; font-size: 1.5rem;">La investigación narrativa como metodología para investigar la escuela y la educación (Doctorado interinstitucional en Educación- Universidad Pedagógica Nacional- Seminario de Énfasis en educación matemática)</h3>
+<div style="font-size: 1.5rem; color: #4a148c; margin-bottom: 1rem;">2025-1</div>
+
+<div class="contenido-expandible" id="contenido-narrativa">
+
+     
+      En este seminario comprendemos que la narrativa es generadora de conocimiento y comprensión de fenómenos a los que no podríamos aproximarnos a partir de otros modos de indagación. Es evidente la necesidad de no pensar   las realidades basadas únicamente en modelos generales que mantienen la lógica de la ciencia como argumentos para operar en el mundo, el modo de pensar narrativo, que tiene como centro la experiencia de los sujetos permite interpretar el mundo y concretar estos modelos generales en diferentes construcciones que develan mundos posibles (Rivas &amp; Herrera, 2010).   Bruner (2003) afirma que en un relato subyace un modo de conocer, de tal manera que modos de narrar y de conocer se entremezclan y retoma la etimología de la palabra narrar que deriva del narrare latino, que es “aquel que sabe de un modo particular” (p. 48). De esta manera, pensar en modo narrativo “no representa construcciones preestablecidas y cerradas, sino un proceso en marcha, un modo de participación en la historia colectiva del conocimiento” (Rivas &amp; Herrera, 2010, p. 18) 
+ 
+      Esta manera de comprender la narrativa nos ubica de un modo particular en la investigación, según Connelly y Clandinin (1990), “la investigación narrativa es el estudio de las formas en que los seres humanos experimentamos el mundo” (p.6) y podemos decir que no solo eso, es el estudio de las formas en las que los seres humanos experimentamos el mundo y nuestra vida, podemos comprenderlo(a) y nos refiguramos en él y en ella. Desde el punto de vista metodológico, la investigación narrativa, permite recoger y sistematizar datos por medio de relatos en los que las personas cuentan su experiencia sobre el foco del estudio.  La interpretación de estos relatos implica una tarea de tipo hermenéutico (Ricoeur, 2000), que consiste en reconstruir su dinámica interna (reconocer y reconstruir los sentidos) y permitir una representación de los acontecimientos, a partir de la posibilidad de reflexión sobre sí mismo y sobre la trama de ese devenir. También se reconoce que desde las narrativas podemos lograr la comprensión de un fenómeno, pues como fue declarado por Goodson (2004), en su investigación sobre historias de vida de profesores, la vida transcurre en el marco de estructuras sociales e instituciones que la hacen ser de unos modos particulares. De manera general el giro lingüístico, el narrativo y la fenomenología hermenéutica nos permite, como lo plantea Ricoeur (1999), que el lenguaje sea mediador entre signos (que afirman la condición originariamente lingüística de la experiencia humana, en este caso, la experiencia educativa y/o escolar) y símbolos (que refieren a la comprensión particular del contexto). 
+      En este seminario pretendemos declarar la importancia de la investigación narrativa en el campo educativo y profundizar en maneras teórico-metodológicas de enfrentarla. Consideramos que el habitar la escuela es una experiencia que nos atraviesa y por ello debe ser indagada desde una perspectiva narrativa. La experiencia entendida en términos de Larrosa (2020) como “eso que me pasa”, como acontecer de algo, que es significativo para la persona a la que le acontece. En definitiva, la experiencia es propia de quien la vive, es relación con el mundo en el que se está inmerso y desde el cual se construyen modos de estar-en–el–mundo. Considerar el habitar la escuela como experiencia “conlleva pensar la manera en que la escuela “compone” una forma de vida en ella, y el saber de esa experiencia como saber corporizado, incorporado, encarnado” (Larrosa, 2020, p. 27). Por lo anterior, la investigación narrativa se comprende como bisagra entre la experiencia y la investigación, es decir, la experiencia y el pensamiento, la experiencia como interrupción de nuestro modo de estar-en–el-mundo y la investigación como necesidad de pensar sobre ella.  Para Larrosa (2020) “no se escribe sobre la experiencia sino desde ella” (p. 28). 
+      Reconocemos la investigación narrativa desde un modelo rizomático y por ende con muchos matices y formas de realización, una de ellas la investigación biográfica, en la que centramos nuestro interés. Como lo plantea Bolívar et al. (2001) 
+      En conjunto, la investigación biográfica se ha dirigido a categorizar el curso de la vida como un proceso de individualización, poniéndolo en relación con el proceso más amplio de socialización. Las biografías son actualizaciones singulares de modelos sociales, cuyas normas y representaciones sociales han sido internalizadas de una manera particular. Ni un determinismo de las estructuras, ni la libre realización de un proyecto autónomo. (p.127) 
+      En concordancia con estos planteamientos la investigación narrativa biográfica ha complejizado sus planteamientos teniendo presente como lo plantea Bolívar et al. (2001), retomando las ideas de Bourdieu, que esos acontecimientos biográficos reconstruidos en una trama narrativa son ubicaciones y desplazamientos en el espacio social; son ubicaciones y desplazamientos en “los diferentes estados sucesivos de la estructura de la distribución de las diferentes especies de capital que están en juego en el campo considerado” (p. 127). Por ello, los relatos de vida, planteaba Bourdieu, son artefactos, que podrían considerarse o estudiarse como «trayectorias», “como «serie de posiciones sucesivamente ocupadas por un mismo agente (o un mismo grupo) en un espacio en sí mismo cambiante y sometido a continuas transformaciones»” (Bolívar et al., 2001, p. 128).  
+      Desde otro punto de vista, Ricoeur (2006) también plantea la complejidad de la relación narrativa y vida, enfatiza la idea de poder trascender la vida como fenómeno biológico a partir de la narración y la interpretación. Las narrativas destacan tiempos y espacios de importancia en la vida del narrador, que a su vez es actante de su vida. Para este autor un acontecimiento no es algo que sucedió y ya; es mucho más que una ocurrencia, es eso que contribuyó al progreso de la vida que se narra y al desarrollo del relato, tanto en su comienzo como en su desenlace. Además, el filósofo francés afirma que la ficción presente en la narrativa contribuye a hacer de la vida, una vida humana. En definitiva, el análisis de narrativas, en todos los campos de la vida humana, tiene que ver con la necesidad de entenderla como un acto primario de la mente transferido al arte desde la vida (McEwan &amp; Egan, 2012).  
+      Por lo anterior, compartimos con Bolívar que los planteamientos de Maclntyre, Ricoeur o Bruner y también los de Bourdieu (citados por Bolívar et al., 2001), permiten pensar que no hay una esencia fija e inmutable que se desarrolla en las personas, no hay opción de pensar que desde la narración se constituyen identidades esenciales, si hay alguna idea de identidad es aquella que es producto de unidades de narración en relatos de vida. Diría Bolívar et al. (2001) “La historia de vida, y la propia identidad personal, no es más que la reflexión del sujeto sobre los sucesivos escenarios recorridos, en orden a su autodefinición en la unidad de un relato” (p. 128). 
+      Reconocemos como lo plantean Porta y Méndez (2021) que hoy tiene lugar una expansión de las perspectivas de la investigación social y educativa con el fin de aproximarse a la experiencia vital de los sujetos, lo que ha implicado la generación de posiciones epistemológicas disruptivas y la propuesta de metodologías e instrumentos que transforman los parámetros establecidos por la investigación clásica. De acuerdo con estos autores “en la actualidad la investigación narrativa y biográfico-narrativa permite vislumbrar territorios vitales e interdependencias plurales […] en las Ciencias Sociales en general y las Ciencias de la Educación en particular” (p. 335). Una perspectiva narrativa en investigación, como lo plantean estos autores, invita “[…] al retorno al sujeto y a la construcción de narrativas de manera polifónica desde epistemologías y metodologías con rostro humano” (Porta &amp; Méndez, 2021, p. 335). Esta perspectiva narrativa pretende superar la dicotomía entre lo subjetivo y lo institucional, por considerar que las voces de los sujetos y los contextos de actuación hacen parte de la misma realidad. También reivindica las identidades de los sujetos desde su propio valor y desde sus maneras propias de interpretación (Rivas et al., 2019). Como lo plantean Porta y Méndez (2021) “es la movilización de los propios sujetos, a partir de la invocación a narrar(se), que conjuga el reconocimiento de sí mismo como sujeto portador de significados, desde relatos situados que se caracterizan por dimensionalidades puestas en territorios, temporalidades y socialidades diversas que hacen de la experiencia la condición sensible y vital que otorga sentido a esta posición” (p. 335). 
+      Reconocemos que lo metodológico es “un escenario complejo centrado en el encuentro intersubjetivo, desde una perspectiva horizontal, colaborativa y participativa. La complejidad epistemológica en que nos movemos tiene en cuenta las diversas formas de conocimiento colectivas que actúan en escenarios socioculturales […]” (Rivas et al., 2019. p. 71). Este encuentro intersubjetivo exige la creación de “[...] estrategias deliberativas y dialógicas, de forma compartida, tanto para la elaboración como para la interpretación de estas narraciones” (Rivas et al., 2019, p. 71).   
+      Este seminario propone el estudio de elementos teóricos y metodológicos que permitan comprender los aportes y posibilidades de la perspectiva narrativa como una forma de investigar en educación, decantando tres posibilidades desde la investigación narrativa: perspectiva hermenéutico-narrativa, metodología la historia oral y la propuesta de metodología Hermenéutica (PINH) 
+      La primera posibilidad refiere a la perspectiva hermenéutico-narrativa propuesta por Lozano y Morón (2009) y usada en la investigación biográfica. Desde esta perspectiva se considera que los informantes hablan desde ellos mismos, sin desconocer su subjetividad. Esta característica de subjetividad es de gran interés debido a que “permite tratar las preocupaciones que normalmente quedan excluidas de la ciencia normal, es una nueva forma de investigación científica humanizada expresada bajo la narrativa y la biografía” (p. 108). Estos autores incluyen dos subtipos de análisis: paradigmático de datos narrativos y narrativo propiamente dicho. El primero “realiza el análisis en función de tipologías paradigmáticas, taxonomías o categorías, para llegar a determinadas generalizaciones del grupo estudiado” (p. 108). El segundo “supone la narración de una trama o argumento, mediante un relato narrativo que torna significativos los datos. No se buscan elementos comunes, sino elementos singulares que configuran la historia (p. 108). Estos autores atribuyen las diferencias de estos dos subtipos al debate establecido entre el paradigma lógico-científico y el modo narrativo, que tiene implicaciones sobre la validez de estos tipos de investigación. Sin embargo, Lozano y Morón (2009) identifican una vía intermedia entre el análisis paradigmático y el análisis narrativo apoyada en las ideas de Geertz (1994) que plantea una reorganización de las categorías “de un modo tal que puedan divulgarse más allá de los contextos en los que se gestaron y adquirieron sentido originalmente con el fin de encontrar afinidades y señalar diferencias” (Lozano &amp; Morón, 2009, p. 109). 
+      Por otra parte, esta propuesta se integra con los planteamientos de doble hermenéutica propuestos por Giddens (Ortiz, 1999) para la consecución genuina de una comunión cognitiva entre el investigador y los participantes de la investigación y de arco hermenéutico propuesto por Ricoeur (1995); para quien la interpretación es “la alternancia de fases de comprensión y de fases de explicación a lo largo de un único ‘arco hermenéutico’” (p. 24) y “si la comprensión precede, acompaña y envuelve la explicación, ésta a su vez desarrolla analíticamente la comprensión” (p. 26). 
+      La segunda posibilidad corresponde a la metodología la historia oral y se sustenta en las tres características que Thompson (1988, citado por Garnica, 2003) atribuye a las evidencias orales como aproximación histórica (Garnica, 2003): a. la oralidad permite rescatar elementos que son inaccesibles en otras formas de recolección de información, les otorga características más dinámicas y vívidas b. los elementos que se acopian con la oralidad permiten entender, corregir y complementar otras formas de registro; c. la evidencia oral evita que los protagonistas de la historia sean entendidos en la distancia y re-elaborados en una “forma erudita de ficción”, transforma “objetos” de estudio en “sujetos” de estudio (Garnica, 2011). 
+      El investigador a partir de entrevistas a los profesores accede a sus narraciones, partiendo de concebirlas como “enunciados en perspectiva”, cuya función es preservar la voz de los informantes. Garnica aclara que las estrategias usadas para evocar los sucesos consisten en: observar fotografías, videos, entre otros registros visuales, es decir, todas estrategias narrativas. En estos estudios la historia oral es considerada como un enfoque de investigación cualitativo que relaciona la oralidad y la memoria. 
+      La tercera posibilidad que abordaremos es la propuesta de metodología Hermenéutica (PINH) en la que se asumen momentos específicos, en los que se realiza un nivel de recolección, organización y sistematización, lo que corresponde a una dinámica propia del círculo hermenéutico (Quintero, 2018). Los momentos propuestos desde esta perspectiva son:
+      Registro de codificación. El tema, problema y/o los objetivos de investigación orientan la estrategia de recolección de información narrativa que sea pertinente.
+      Nivel textual: Pre-concepción de la trama narrativa. En este momento se construye una red con los aspectos que conforman la trama (acontecimientos, las acciones y/o experiencias). “En este nivel textual identificamos tres tipos de referencias encargadas de otorgar el carácter de inteligibilidad a la narrativa. Éstas son: hechos, temporalidades y espacialidades (…) En estas pre-concepciones encontramos la respuesta a interrogantes tales como: ¿qué?, ¿por qué?, ¿cómo?, ¿cuándo? y ¿dónde?, entre otros” (Quintero, 2018, p. 2).   
+      Nivel contextual de la trama narrativa. En este momento, el análisis se centra en la fuerza narrativa dada por el sujeto de la enunciación a sus acciones.  Esta fuerza narrativa se entiende como el uso comunicativo y/o expresivo empleado por el sujeto de la enunciación para referirse a lo que con “el lenguaje hace” y a “lo que hace con lo que dice”. En otras palabras, con el lenguaje hacemos y decimos cosas, lo que implica una correspondencia entre lenguaje y mundo; correspondencia que incluye al “Otro” el cual hace parte de mi acción social y de “mi mundo subjetivo”. Desde nuestro nacimiento hemos sido arrojados a las redes de interlocución o redes narrativas las cuales re-estructuramos a lo largo de nuestra vida por nuestras relaciones con los “Otros”” (Quintero 2018, p. 9). En este momento se presentan dos fuerzas presentes en el relato: Las fuerzas narrativas referentes a los compromisos, se refiere a las frases usadas por quien relata para comprometerse, prometer, hacer pactos, etc. “Estos enunciados o emisiones se valoran como morales en la medida en que: a) son emitidos por un sujeto moral; b) se refieren a los comportamientos de los sujetos; c) indican una intención moral; d) señalan una actitud moral” (Quintero, 2018, p. 10); y Las fuerzas enunciativas metafóricas, refieren al uso de metáforas que ayudan a explicar la experiencia. Mientras que las fuerzas narrativas simbólicas refieren a la forma mítica que se usa para narrar algunos acontecimientos.  
+      Nivel metatextual: reconfiguración de la trama narrativa. En este momento se hace una “nueva lectura”, a partir de los momentos anteriores, donde se reconfigura la experiencia.  
+      “En este nivel la polifonía discursiva guía la escritura en la que se reconfigura la trama narrativa confiriéndole a la narrativa su carácter de pluralidad, porque nos revelamos como sujetos narrativos irreductibles e inconfundibles. En este nivel, la polifonía da cuenta de que las narrativas no son simples historias, sino un conjunto interrelacionado de creencias, normas, ideologías las cuales son reveladas por el investigador y narradas en trama narrativa reconfigurada” (Quintero, 2018, p. 15). 
+      Consideramos que estas tres posibilidades metodológicas de la investigación narrativa permiten reconocer la importancia de la narrativa en la en la comprensión de aquello que acontece en la escuela y en la configuración de identidades de los que la habitan; para el caso de los profesores, el papel de la narración en su formación y en sus múltiples refiguraciones a lo largo de su experiencia y formación continuada.
+      A su vez, de acuerdo con Whyte (1981, citado por Gudmundsdottir, 2012) planteamos que el vínculo entre conocimiento y práctica pedagógica del profesor solo es posible a través de la narración. Para Whyte, el profesor con su práctica pedagógica puede conservar la naturalidad de las situaciones escolares e impactar determinantemente en la evolución de los procesos de enseñanza-aprendizaje, pero ello implica una estrecha vinculación entre conocimiento y práctica profesional, que solo se posibilita a través de la narración. Para McEwan (2012) “una explicación hermenéutica del raciocinio práctico […] disuelve el dualismo entre teoría y práctica” (p. 252). Así, la interpretación de los relatos de los maestros permite comprender el sentido de una cierta organización de los sucesos en una secuencia temporal y resignificar las prácticas pedagógicas y las experiencias personales de tipo profesional o escolar. Esto se debe a que la narrativa se “trata no sólo de hechos, ideas o teorías, o hasta de sueños, temores y esperanzas, sino de hechos, teorías y sueños desde la perspectiva de la vida de alguien y dentro del contexto de las emociones de alguien” (McEwan &amp; Egan, 2012, p. 10). En este sentido, asigna sentido a los acontecimientos de la vida del profesor y los inviste de coherencia, integridad, amplitud y conclusión (Gudmundsdottir, 2012). 
+      Por último, toda investigación supone pensar la posición ética del investigador, considerada como relación paritaria con el sujeto de la investigación, pues en este tipo de investigación los dos quedan expuestos. Como lo señalan Rivas et al. (2020b) pasan del plano íntimo a una exposición pública, ponen en juego su subjetividad expresada en sus vidas, sus trayectorias, sus voces. Este traslado de la esfera de lo íntimo a lo público puede afectar de una forma u otra a su intimidad, su imagen pública, sus responsabilidades, etc.
+    
+</div>
+<span class="ver-mas" id="toggle-narrativa"></span>
+
+<div class="photo-placeholder">
+<img class="seminario-img" src="index/img/SEMIN/SEM 4.2.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 4.3.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 4.4.png" style="width: 300px; border-radius: 8px;"/>
+<img class="seminario-img" src="index/img/SEMIN/SEM 4.1.png" style="width: 270px; border-radius: 8px;"/>
+</div>
+</div>
+</div>
+<div class="tab-content" id="integrantes">
+<h2>Integrantes</h2>
+<div style="overflow-x: auto;">
+<table style="width: 100%; border-collapse: collapse; background: white;">
+<thead style="background-color: #6a1b9a; color: white;">
+<tr>
+<th style="border: 1px solid #ccc; padding: 10px;">Línea</th>
+<th style="border: 1px solid #ccc; padding: 10px;">Nombre del doctorando</th>
+<th style="border: 1px solid #ccc; padding: 10px;">Título de la tesis</th>
+<th style="border: 1px solid #ccc; padding: 10px;">Enlace CvLAC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="5" style="border: 1px solid #ccc; padding: 10px;">Crítica y Justicia Social en educación matemática</td>
+<td style="border: 1px solid #ccc; padding: 10px;">Cindy Yesenia Indaburo</td>
+<td style="border: 1px solid #ccc; padding: 10px;">Las refiguracion(es) de subjetividad(es) política(s) de profesores de
+              matemáticas: historias de vida y escenarios colectivos</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543950" target="_blank">Ver CvLAC</a></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 10px;">Lesly Tatiana Galvis Bejarano</td>
+<td style="border: 1px solid #ccc; padding: 10px;">Características de las prácticas investigativas enmarcadas en la Educación Matemática Crítica (EMC) en el contexto colombiano</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001213857" target="_blank">Ver CvLAC</a></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 10px;">Yessica Paola Sánchez Naranjo</td>
+<td style="border: 1px solid #ccc; padding: 10px;">La configuración de subjetividades políticas en la era digital: desafíos para la formación ciudadana crítica en el marco de los enfoques sociopolíticos de la educación matemática</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000127614" target="_blank">Ver CvLAC</a></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 10px;">Claudia Mayerly Sarmiento Martín</td>
+<td style="border: 1px solid #ccc; padding: 10px;">POSICIONAMIENTOS, ACCIONES E INTENCIONES: Prácticas pedagógicas de maestros que enseñan matemáticas en zonas de conflicto armado en Colombia.</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543644" target="_blank">Ver CvLAC</a></td>
+</tr>
+<tr>
+<td style="border: 1px solid #ccc; padding: 10px;">José Antonio Rodríguez Suárez</td>
+<td style="border: 1px solid #ccc; padding: 10px;">SUBJETIVIDAD POLÍTICA Y DIDÁCTICA CRÍTICA EN PRÁCTICAS MATEMÁTICAS ESCOLARES DE EDUCADORES MATEMÁTICOS CRÍTICOS</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000730645" target="_blank">Ver CvLAC</a></td>
+</tr>
+<tr>
+<td rowspan="1" style="border: 1px solid #ccc; padding: 10px;">Narrativa y Diversidad en educación matemática</td>
+<td style="border: 1px solid #ccc; padding: 10px;">Elisandra Pérez</td>
+<td style="border: 1px solid #ccc; padding: 10px;">La intersección de la literatura y las matemáticas: Un análisis de la representación de conceptos matemáticos en la literatura de ciencia ficción.</td>
+<td style="border: 1px solid #ccc; padding: 10px;"><a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002099120" target="_blank">Ver CvLAC</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="tab-content" id="colaboradores">
+<h2>Profesores Colaboradores</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+<div class="photo-placeholder" style="flex: 1 1 250px;">
+<img alt="Profesores 1" src="index/img/INVITDOS/inv1.jpeg" style="width: 400px; border-radius: 8px;">
+<p>Porfesor Javier Lesama Doctor en Ciencias con Especialidad en Matemática Educativa y Magíster en Ciencias con Especialidad en Matemática Educativa del Centro de Investigación y de Estudios Avanzados del Instituto Politécnico Nacional (Cinvestav - IPN). Profesor titular del Centro de Investigación en Ciencia Aplicada y Tecnología Avanzada (CICATA - IPN).</p>
+</img></div>
+<div class="photo-placeholder" style="flex: 1 1 250px;">
+<img alt="Profesores 2" src="index/img/INVITDOS/inv2.jpeg" style="width: 400px; border-radius: 8px;">
+<p>Profesor José Torres  Doctor en Estudios Sociales de la Universidad Distrital Francisco José de Caldas. Profesor e investigador de la Universidad Distrital Francisco José de Caldas, Bogotá, Colombia.</p>
+</img></div>
+<div class="photo-placeholder" style="flex: 1 1 250px;">
+<img alt="Profesores 3" src="index/img/INVITDOS/inv3.jpeg" style="width: 400px; border-radius: 8px;">
+<p>Filipe Fernandes Doctor en Educación Matemática por la Universidade Estadual Paulista Júlio de Mesquita Filho, con pasantía en la Universidad de Barcelona (España). Es Profesor de la Facultad de Educación de la Universidad Federal de Minas Gerais (UFMG), donde actúa en cursos de pregrado destinados a la formación de docentes que enseñan matemáticas y en el Programa de Postgrado en Educación: conocimiento e inclusión social. Miembro del Grupo de Investigación en Historia Oral y Educación Matemática (GHOEM)</p>
+</img></div>
+<div class="photo-placeholder" style="flex: 1 1 250px;">
+<img alt="Profesor 4" src="index/img/INVITDOS/inv4.jpeg" style="width: 400px; border-radius: 8px;">
+<p>Luz Valoyes Chávez es Ph.D., Learning, Teaching and Curriculum (Mathematics Education). Es profesora asociada en la Universidad Católica de Temuco e investigadora asociada en el Centro de Investigación Avanzada en Educación-Universidad de Chile. Su investigación se centra en los procesos de racialización y justicia racial en la educación matemática en América Latina.</p>
+</img></div>
+<div class="photo-placeholder" style="flex: 1 1 250px;">
+<img alt="Profesor 6" src="index/img/INVITDOS/inv7.jpeg" style="width: 400px; border-radius: 8px;">
+<p style="margin-left: 500px;margin-right: 500px;">Porfesora Diana Gil Chaves Doctora en Educación con Énfasis en Educación Matemáticas por la Universidad Distrital Francisco José de Caldas. Docente la Facultad de Ciencias y Educación de la Universidad Distrital en el programa de Licenciatura en Matemáticas.</p>
+</img></div>
+</div>
+</div>
+<script>
+    function showTab(event, id) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(button => button.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+<script>
+function toggleReadMore(element) {
+    const content = element.previousElementSibling;
+    const isHidden = content.style.display === 'none' || content.style.display === '';
+    if (isHidden) {
+        content.style.display = 'inline';
+        element.textContent = 'Leer menos';
+    } else {
+        content.style.display = 'none';
+        element.textContent = 'Leer más';
+    }
+}
+</script>
+<script>
+  const contenidoNarrativa = document.getElementById('contenido-narrativa');
+  const toggleNarrativa = document.getElementById('toggle-narrativa');
+
+  const textoOriginal = contenidoNarrativa.innerHTML;
+  const palabras = textoOriginal.split(/\s+/);
+  const limite = 700;
+  let expandido = false;
+
+  if (palabras.length > limite) {
+    const textoRecortado = palabras.slice(0, limite).join(' ') + '...';
+    contenidoNarrativa.innerHTML = textoRecortado;
+
+    toggleNarrativa.addEventListener('click', () => {
+      if (!expandido) {
+        contenidoNarrativa.innerHTML = textoOriginal;
+        toggleNarrativa.textContent = 'Ver menos';
+        expandido = true;
+      } else {
+        contenidoNarrativa.innerHTML = textoRecortado;
+        toggleNarrativa.textContent = 'Ver más';
+        expandido = false;
+      }
+    });
+  } else {
+    toggleNarrativa.style.display = 'none';
+  }
+</script>
+
+<script>
+  const contenido-fundamentosdelainvestigaciónnarrativa = document.getElementById('contenido-fundamentosdelainvestigaciónnarrativa');
+  const toggle-contenido-fundamentosdelainvestigaciónnarrativa = document.getElementById('toggle-contenido-fundamentosdelainvestigaciónnarrativa');
+
+  const textoOriginal_contenido-fundamentosdelainvestigaciónnarrativa = contenido-fundamentosdelainvestigaciónnarrativa.innerHTML;
+  const palabras_contenido-fundamentosdelainvestigaciónnarrativa = textoOriginal_contenido-fundamentosdelainvestigaciónnarrativa.split(/\s+/);
+  const limite_contenido-fundamentosdelainvestigaciónnarrativa = 700;
+  let expandido_contenido-fundamentosdelainvestigaciónnarrativa = false;
+
+  if (palabras_contenido-fundamentosdelainvestigaciónnarrativa.length > limite_contenido-fundamentosdelainvestigaciónnarrativa) {
+    const textoRecortado = palabras_contenido-fundamentosdelainvestigaciónnarrativa.slice(0, limite_contenido-fundamentosdelainvestigaciónnarrativa).join(' ') + '...';
+    contenido-fundamentosdelainvestigaciónnarrativa.innerHTML = textoRecortado;
+
+    toggle-contenido-fundamentosdelainvestigaciónnarrativa.addEventListener('click', () => {
+      if (!expandido_contenido-fundamentosdelainvestigaciónnarrativa) {
+        contenido-fundamentosdelainvestigaciónnarrativa.innerHTML = textoOriginal_contenido-fundamentosdelainvestigaciónnarrativa;
+        toggle-contenido-fundamentosdelainvestigaciónnarrativa.textContent = 'Ver menos';
+        expandido_contenido-fundamentosdelainvestigaciónnarrativa = true;
+      } else {
+        contenido-fundamentosdelainvestigaciónnarrativa.innerHTML = textoRecortado;
+        toggle-contenido-fundamentosdelainvestigaciónnarrativa.textContent = 'Ver más';
+        expandido_contenido-fundamentosdelainvestigaciónnarrativa = false;
+      }
+    });
+  } else {
+    toggle-contenido-fundamentosdelainvestigaciónnarrativa.style.display = 'none';
+  }
+</script>
+
+<script>
+  const contenido-narrativasescuelaexperienciaeinvestigación = document.getElementById('contenido-narrativasescuelaexperienciaeinvestigación');
+  const toggle-contenido-narrativasescuelaexperienciaeinvestigación = document.getElementById('toggle-contenido-narrativasescuelaexperienciaeinvestigación');
+
+  const textoOriginal_contenido-narrativasescuelaexperienciaeinvestigación = contenido-narrativasescuelaexperienciaeinvestigación.innerHTML;
+  const palabras_contenido-narrativasescuelaexperienciaeinvestigación = textoOriginal_contenido-narrativasescuelaexperienciaeinvestigación.split(/\s+/);
+  const limite_contenido-narrativasescuelaexperienciaeinvestigación = 700;
+  let expandido_contenido-narrativasescuelaexperienciaeinvestigación = false;
+
+  if (palabras_contenido-narrativasescuelaexperienciaeinvestigación.length > limite_contenido-narrativasescuelaexperienciaeinvestigación) {
+    const textoRecortado = palabras_contenido-narrativasescuelaexperienciaeinvestigación.slice(0, limite_contenido-narrativasescuelaexperienciaeinvestigación).join(' ') + '...';
+    contenido-narrativasescuelaexperienciaeinvestigación.innerHTML = textoRecortado;
+
+    toggle-contenido-narrativasescuelaexperienciaeinvestigación.addEventListener('click', () => {
+      if (!expandido_contenido-narrativasescuelaexperienciaeinvestigación) {
+        contenido-narrativasescuelaexperienciaeinvestigación.innerHTML = textoOriginal_contenido-narrativasescuelaexperienciaeinvestigación;
+        toggle-contenido-narrativasescuelaexperienciaeinvestigación.textContent = 'Ver menos';
+        expandido_contenido-narrativasescuelaexperienciaeinvestigación = true;
+      } else {
+        contenido-narrativasescuelaexperienciaeinvestigación.innerHTML = textoRecortado;
+        toggle-contenido-narrativasescuelaexperienciaeinvestigación.textContent = 'Ver más';
+        expandido_contenido-narrativasescuelaexperienciaeinvestigación = false;
+      }
+    });
+  } else {
+    toggle-contenido-narrativasescuelaexperienciaeinvestigación.style.display = 'none';
+  }
+</script>
+
+<script>
+  const contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = document.getElementById('contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación');
+  const toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = document.getElementById('toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación');
+
+  const textoOriginal_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.innerHTML;
+  const palabras_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = textoOriginal_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.split(/\s+/);
+  const limite_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = 700;
+  let expandido_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = false;
+
+  if (palabras_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.length > limite_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación) {
+    const textoRecortado = palabras_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.slice(0, limite_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación).join(' ') + '...';
+    contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.innerHTML = textoRecortado;
+
+    toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.addEventListener('click', () => {
+      if (!expandido_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación) {
+        contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.innerHTML = textoOriginal_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación;
+        toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.textContent = 'Ver menos';
+        expandido_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = true;
+      } else {
+        contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.innerHTML = textoRecortado;
+        toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.textContent = 'Ver más';
+        expandido_contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación = false;
+      }
+    });
+  } else {
+    toggle-contenido-incursionesdelacríticaylopolíticoenlaeducaciónmatemáticaysuinvestigación.style.display = 'none';
+  }
+</script>
+
+<script>
+  const contenido-perspectivanarrativaeneducaciónaportesyposibilidades = document.getElementById('contenido-perspectivanarrativaeneducaciónaportesyposibilidades');
+  const toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades = document.getElementById('toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades');
+
+  const textoOriginal_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = contenido-perspectivanarrativaeneducaciónaportesyposibilidades.innerHTML;
+  const palabras_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = textoOriginal_contenido-perspectivanarrativaeneducaciónaportesyposibilidades.split(/\s+/);
+  const limite_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = 700;
+  let expandido_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = false;
+
+  if (palabras_contenido-perspectivanarrativaeneducaciónaportesyposibilidades.length > limite_contenido-perspectivanarrativaeneducaciónaportesyposibilidades) {
+    const textoRecortado = palabras_contenido-perspectivanarrativaeneducaciónaportesyposibilidades.slice(0, limite_contenido-perspectivanarrativaeneducaciónaportesyposibilidades).join(' ') + '...';
+    contenido-perspectivanarrativaeneducaciónaportesyposibilidades.innerHTML = textoRecortado;
+
+    toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades.addEventListener('click', () => {
+      if (!expandido_contenido-perspectivanarrativaeneducaciónaportesyposibilidades) {
+        contenido-perspectivanarrativaeneducaciónaportesyposibilidades.innerHTML = textoOriginal_contenido-perspectivanarrativaeneducaciónaportesyposibilidades;
+        toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades.textContent = 'Ver menos';
+        expandido_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = true;
+      } else {
+        contenido-perspectivanarrativaeneducaciónaportesyposibilidades.innerHTML = textoRecortado;
+        toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades.textContent = 'Ver más';
+        expandido_contenido-perspectivanarrativaeneducaciónaportesyposibilidades = false;
+      }
+    });
+  } else {
+    toggle-contenido-perspectivanarrativaeneducaciónaportesyposibilidades.style.display = 'none';
+  }
+</script>
+
+</body>
+
+</html>
