@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Colectivo Narrativas, Crítica y Educación Matemática - Universidad Pedagógica Nacional (Colombia).">
   <title>Colectivo Narrativas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;700;800&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,15 +18,21 @@
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       Narrativas
     </a>
-    <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
-    <nav class="nav-tabs" id="nav-tabs">
-      <button class="nav-btn active" data-target="inicio">Inicio</button>
-      <button class="nav-btn" data-target="produccion">Producción Académica</button>
-      <button class="nav-btn" data-target="proyectos">Proyectos</button>
-      <button class="nav-btn" data-target="seminarios">Seminarios</button>
-      <button class="nav-btn" data-target="integrantes">Integrantes</button>
-      <button class="nav-btn" data-target="colaboradores">Colaboradores</button>
-    </nav>
+    <div class="header-right">
+      <nav class="nav-tabs" id="nav-tabs">
+        <button class="nav-btn active" data-target="inicio">Inicio</button>
+        <button class="nav-btn" data-target="produccion">Producción Académica</button>
+        <button class="nav-btn" data-target="proyectos">Proyectos</button>
+        <button class="nav-btn" data-target="seminarios">Seminarios</button>
+        <button class="nav-btn" data-target="integrantes">Integrantes</button>
+        <button class="nav-btn" data-target="colaboradores">Colaboradores</button>
+      </nav>
+      <div class="view-counter" id="view-counter" title="Visitas al sitio">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        <span id="view-count" aria-live="polite">···</span>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+    </div>
   </div>
 </header>
 
@@ -57,11 +66,11 @@
       <div class="glass-card prof-card">
         <h3>Elizabeth Torres Puentes</h3>
         <div class="prof-links">
-          <a href="https://scholar.google.com.co/citations?user=Ggi43ywAAAAJ&hl=es" target="_blank" class="btn">
+          <a href="https://scholar.google.com.co/citations?user=Ggi43ywAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
             Google Scholar
           </a>
-          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001381847" target="_blank" class="btn">
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001381847" target="_blank" rel="noopener" class="btn">
             CvLAC - Minciencias
           </a>
         </div>
@@ -70,11 +79,11 @@
       <div class="glass-card prof-card">
         <h3>Claudia Salazar Amaya</h3>
         <div class="prof-links">
-          <a href="https://scholar.google.es/citations?user=ewt_6wkAAAAJ&hl=es" target="_blank" class="btn">
+          <a href="https://scholar.google.es/citations?user=ewt_6wkAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
             Google Scholar
           </a>
-          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000161152" target="_blank" class="btn">
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000161152" target="_blank" rel="noopener" class="btn">
             CvLAC - Minciencias
           </a>
         </div>
@@ -97,7 +106,7 @@
           <p style="color: var(--text-muted); margin-bottom: 0.5rem;"><strong>Código:</strong> DMA-608-22</p>
           <p style="color: var(--text-muted); margin-bottom: 1.5rem;"><strong>Año:</strong> 2022</p>
         </div>
-        <a href="http://repositorio.pedagogica.edu.co/handle/20.500.12209/18984" target="_blank" class="btn" style="background: var(--primary); color: white;">Ver repositorio del proyecto</a>
+        <a href="http://repositorio.pedagogica.edu.co/handle/20.500.12209/18984" target="_blank" rel="noopener" class="btn" style="background: var(--primary); color: white;">Ver repositorio del proyecto</a>
       </div>
       <div>
         <img src="index/img/proyect 3.png" alt="Proyecto 3" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-sm);">
@@ -174,6 +183,7 @@
           <img src="index/img/SEMIN/SEM 2.4.png" alt="Seminario 2" style="height: 200px;">
           <img src="index/img/SEMIN/SEM 2.5.png" alt="Seminario 2" style="height: 200px;">
           <img src="index/img/SEMIN/SEM 2.6.png" alt="Seminario 2" style="height: 200px;">
+          <img src="index/img/SEMIN/SEM 2.7.png" alt="Artefacto elaborado en el seminario: una metáfora visual acompañada de su ficha de título, autor y descripción" style="height: 200px;" loading="lazy">
         </div>
       </div>
     </div>
@@ -272,45 +282,107 @@
     <div class="integrantes-grid">
       <!-- Integrante 1 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea">Crítica y Justicia Social</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
         <h3>Cindy Yesenia Indaburo</h3>
-        <p>Las refiguracion(es) de subjetividad(es) política(s) de profesores de matemáticas: historias de vida y escenarios colectivos</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543950" target="_blank" class="btn">Ver CvLAC</a>
+        <p>(Re)configuraciones de la subjetividad política de profesores de matemáticas que participan en colectivos: historias de vida y aprendizaje biográfico.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=PUZxGDoAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543950" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
       <!-- Integrante 2 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea">Crítica y Justicia Social</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
         <h3>Lesly Tatiana Galvis Bejarano</h3>
-        <p>Características de las prácticas investigativas enmarcadas en la Educación Matemática Crítica (EMC) en el contexto colombiano</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001213857" target="_blank" class="btn">Ver CvLAC</a>
+        <p>Formación para la democracia en la clase de matemáticas: una aproximación crítica a los discursos de investigaciones inscritas en perspectivas críticas y sociopolíticas de la Educación Matemática en Colombia.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=5MlmEsgAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001213857" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
       <!-- Integrante 3 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea">Crítica y Justicia Social</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
         <h3>Yessica Paola Sánchez Naranjo</h3>
-        <p>La configuración de subjetividades políticas en la era digital: desafíos para la formación ciudadana crítica...</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000127614" target="_blank" class="btn">Ver CvLAC</a>
+        <p>La configuración de subjetividades políticas en la era digital: desafíos para la formación ciudadana crítica en el marco de los enfoques sociopolíticos de la educación matemática.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=VI_nRUYAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000127614" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
       <!-- Integrante 4 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea">Crítica y Justicia Social</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
         <h3>Claudia Mayerly Sarmiento Martín</h3>
-        <p>Posicionamientos, acciones e intenciones: Prácticas pedagógicas de maestros que enseñan matemáticas en zonas de conflicto armado en Colombia.</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543644" target="_blank" class="btn">Ver CvLAC</a>
+        <p>Prácticas pedagógicas de maestros que enseñan matemáticas: sentidos en territorios de conflicto armado.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=jV8BiaQAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001543644" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
       <!-- Integrante 5 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea">Crítica y Justicia Social</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
         <h3>José Antonio Rodríguez Suárez</h3>
-        <p>Subjetividad política y didáctica crítica en prácticas matemáticas escolares de educadores matemáticos críticos</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000730645" target="_blank" class="btn">Ver CvLAC</a>
+        <p>Didáctica y subjetividad política en prácticas de enseñanza de educadores matemáticos críticos colombianos.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=BqyYa3MAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000730645" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
       <!-- Integrante 6 -->
       <div class="glass-card integrante-card">
-        <span class="integrante-linea" style="background: var(--accent);">Narrativa y Diversidad</span>
+        <span class="integrante-linea">Crítica y Justicia Social en Educación Matemática</span>
+        <h3>Diego Guerrero Garay</h3>
+        <p>La justicia curricular en la educación matemática como camino para la construcción de justicia social.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=EmSP_hEAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002252041" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
+      </div>
+      <!-- Integrante 7 -->
+      <div class="glass-card integrante-card">
+        <span class="integrante-linea" style="background: var(--accent);">Narrativa y Diversidad en Educación Matemática</span>
         <h3>Elisandra Pérez</h3>
-        <p>La intersección de la literatura y las matemáticas: Un análisis de la representación de conceptos matemáticos en la literatura de ciencia ficción.</p>
-        <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002099120" target="_blank" class="btn">Ver CvLAC</a>
+        <p>La intersección de la literatura y las matemáticas: un análisis de la representación de conceptos matemáticos en la literatura de ciencia ficción.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=RWYMeTEAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0002099120" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
+      </div>
+      <!-- Integrante 8 -->
+      <div class="glass-card integrante-card">
+        <span class="integrante-linea" style="background: var(--accent);">Narrativa y Diversidad en Educación Matemática</span>
+        <h3>Viviana Paola Salazar Fino</h3>
+        <p>Identidades matemáticas de estudiantes migrantes.</p>
+        <div class="integrante-links">
+          <a href="https://scholar.google.com/citations?user=_txZMDIAAAAJ&hl=es" target="_blank" rel="noopener" class="btn">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000015299" target="_blank" rel="noopener" class="btn">Ver CvLAC</a>
+        </div>
       </div>
     </div>
   </section>
@@ -360,8 +432,8 @@
       
       <!-- Colab 6 -->
       <div class="glass-card colab-card">
-        <img alt="Doctora Lenguaje" src="index/img/INVITDOS/inv8.jpg" loading="lazy">
-        <h3 style="margin-bottom: 0.5rem; font-size: 1.25rem;">Doctora Lenguaje y Educación</h3>
+        <img alt="Angélica Molina" src="index/img/INVITDOS/inv8.jpg" loading="lazy">
+        <h3 style="margin-bottom: 0.5rem; font-size: 1.25rem;">Angélica Molina</h3>
         <p>Magíster en Lingüística Española (Instituto Caro y Cuervo). Docente e investigadora de la UDFJC. Analista del Discurso y lingüista en espacios formativos.</p>
       </div>
 

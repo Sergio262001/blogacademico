@@ -34,4 +34,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Contador de vistas del sitio (servicio externo abacus.jasoncameron.dev, sin backend propio).
+  // Solo suma una vista por pestaña/sesión (sessionStorage); recargas dentro de la
+  // misma sesión solo consultan el valor actual, no vuelven a sumar.
+  const viewCountEl = document.getElementById('view-count');
+  const viewCounterEl = document.getElementById('view-counter');
+
+  if (viewCountEl) {
+    const NAMESPACE = 'conacedum-com';
+    const KEY = 'site-views';
+    const alreadyCounted = sessionStorage.getItem('ncem-view-counted');
+    const endpoint = alreadyCounted
+      ? `https://abacus.jasoncameron.dev/get/${NAMESPACE}/${KEY}`
+      : `https://abacus.jasoncameron.dev/hit/${NAMESPACE}/${KEY}`;
+
+    fetch(endpoint)
+      .then(res => res.json())
+      .then(data => {
+        viewCountEl.textContent = data.value.toLocaleString('es-CO');
+        sessionStorage.setItem('ncem-view-counted', '1');
+      })
+      .catch(() => {
+        // Servicio externo no disponible (o bloqueado por un adblocker):
+        // se oculta el contador en vez de dejar un "···" roto.
+        if (viewCounterEl) viewCounterEl.style.display = 'none';
+      });
+  }
+
 });
